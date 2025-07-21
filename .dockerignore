@@ -1,0 +1,13 @@
+.git
+.gitignore
+Dockerfile
+.dockerignore
+*.md
+*.log
+*.test
+*.exe
+*.out
+vendor/
+tmp/
+.env
+.vscode/
