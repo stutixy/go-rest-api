@@ -1,10 +1,14 @@
 package models
 
-type Task struct {
-	ID          int    `json:"id"`
-	Title       string `json:"title"`
-	Description string `json:"description"`
-}
+import (
+	"time"
+)
 
-var Tasks = []Task{}
-var NextID = 1
+type Task struct {
+	ID          uint      `gorm:"primaryKey" json:"id"`
+	Title       string    `json:"title" binding:"required"`
+	Description string    `json:"description"`
+	Completed   bool      `json:"completed"`
+	CreatedAt   time.Time `json:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at"`
+}

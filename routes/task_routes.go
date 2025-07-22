@@ -6,13 +6,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterTaskRoutes(router *gin.Engine) {
+func RegisterTaskRoutes(router *gin.Engine, controller *controllers.TaskController) {
 	taskGroup := router.Group("/task")
 	{
-		taskGroup.POST("", controllers.CreateTask)
-		taskGroup.GET("", controllers.GetTasks)
-		taskGroup.GET("/:id", controllers.GetTaskByID)
-		taskGroup.PUT("/:id", controllers.UpdateTask)
-		taskGroup.DELETE("/:id", controllers.DeleteTask)
+		taskGroup.POST("", controller.CreateTask)
+		taskGroup.GET("", controller.GetTasks)
+		taskGroup.GET("/:id", controller.GetTaskByID)
+		taskGroup.PUT("/:id", controller.UpdateTask)
+		taskGroup.DELETE("/:id", controller.DeleteTask)
 	}
 }
